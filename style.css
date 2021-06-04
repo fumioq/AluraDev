@@ -3,20 +3,28 @@
   --branco: #fff;
   --barra_busca: #2D415A;
   --cinza_menu: #666666;
+  --inter: 'Inter', sans-serif;
+  --roboto: 'Roboto Mono', monospace;
 }
 
 body {
   background-color: var(--fundo_site);
 }
 
-/*.container {
-  margin-left: 6%;
-  margin-right: 6%;
-}*/
+.texto_geral {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.titulo {
+  font-family: var(--inter);
+  font-weight: 700; 
+}
 
 .header {
   display: flex;
-  margin: 1rem;
+  margin: 2rem;
   justify-content: space-between;
 }
 
@@ -32,7 +40,8 @@ body {
 .header_usuario {
   display: flex;
   align-items: center;
-  width: 100px
+  width: 145px;
+  justify-content: flex-end;
 }
 
 .header_usuario_nome {
@@ -43,10 +52,10 @@ body {
 .corpo {
   display: flex;
   justify-content: space-between;
+  margin: 2rem;
 }
 
 .menu {
-  margin: 1rem;
   width: 20%;
 }
 
@@ -67,7 +76,7 @@ body {
   border-radius: 16px;
   width: 48px;
   height: 48px;
-  margin: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,28 +103,47 @@ body {
   background: #5081FB;
 }
 
-/*.menu_navegacao_lista_itens a {
-
-}*/
-
-/*.selecionado {
-  background-image: url(img/Icon_editor.svg);
-  background-repeat: no-repeat;
-  opacity: 1;
-}*/
-
-.nao_selecionado {
-  background-image: url(img/Icon_comunidade.svg);
-  background-repeat: no-repeat;
-}
 
 .codigo {
-  width: 50%;
+  width: 50vw;
 }
 
+.codigo_caixa { 
+  background-color:#9AFF6B;
+  align-items: center;
+  justify-content: center;
+  height: 288px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.codigo_caixa_preta {
+  background-color: #000;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  box-shadow: 0 16px 10px rgba(0 ,0 ,0 ,0.24);
+}
+
+.codigo_caixa_pontos {
+  margin: 9px;
+}
+
+.codigo_caixa_pontos_ponto {
+  height: 9px;
+  width: 9px;
+}
 
 .codigo_caixa_input {
-  width: 100%;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  color: var(--branco);
+  background-color: #000;
+  border: none;
+  height: 230px;
+  resize: none;
+  font-family: var(--roboto);
+  font-weight: 400;
 }
 
 .opcoes {
