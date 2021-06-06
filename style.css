@@ -66,6 +66,25 @@ body {
   justify-content: flex-end;
 }
 
+.icone_menu {
+  display: none;
+  height: 48px;
+  width: 48px;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.icone_menu:hover {
+  background: var(--icon-h);
+}
+
+.icone_menu:active {
+  background: var(--icon-a);
+}
+
+
 .header_usuario_nome {
   color: var(--branco);
   margin-left: .5rem;
@@ -245,6 +264,7 @@ body {
 }
 
 .opcoes_personalizacao_tipo_codigo {
+  width: 100%;
   padding: 1rem;
   border: none;
   border-radius: .5rem;
@@ -410,8 +430,12 @@ body {
     flex-direction: column;
   }
 
-  .menu {
+  .menu , .header_usuario {
     display: none;
+  }
+
+  .icone_menu {
+    display: flex;
   }
 
   .codigo {
