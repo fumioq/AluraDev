@@ -66,25 +66,6 @@ body {
   justify-content: flex-end;
 }
 
-.icone_menu {
-  display: none;
-  height: 48px;
-  width: 48px;
-  border-radius: 1rem;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-}
-
-.icone_menu:hover {
-  background: var(--icon-h);
-}
-
-.icone_menu:active {
-  background: var(--icon-a);
-}
-
-
 .header_usuario_nome {
   color: var(--branco);
   margin-left: .5rem;
@@ -94,6 +75,10 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 2rem;
+}
+
+.menu_toggle {
+  display: none;
 }
 
 .menu {
@@ -347,7 +332,6 @@ body {
   margin: 0 0 1.5rem;
   border-radius: 1rem;
   background-color: var(--comunidade-projeto-bg);
-  transition: .5s;
 }
 
 .codigo_caixa_preta_comunidade {
@@ -381,7 +365,6 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  transition: 5s;
 }
 
 .codigo_comunidade_projeto:hover .interacoes_comunidade {
@@ -430,12 +413,112 @@ body {
     flex-direction: column;
   }
 
-  .menu , .header_usuario {
+  .menu {
     display: none;
   }
 
-  .icone_menu {
+  .header {
+    justify-content: initial;  
+  }
+
+  .header_input {
+    align-items: center;
+    margin-left: 10%;
+    margin-right: calc(10% + 50px);
+    width: 80%;
+  }
+  
+  .header_usuario {
+    display: none;
+  }
+
+  .menu_toggle {
+    display: initial;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: calc(2rem - 6px);
+    list-style-type: none;
+  }
+  
+  .menu_toggle nav {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+
+
+  .menu_toggle input {
+    position: relative;
+    top: 0px;
+    position: absolute;
+    right: 2rem;
+    height: 48px;
+    width: 48px;
+  
+    cursor: pointer;
+  
+    z-index: 1;
+    opacity: 0;
+  }
+  
+  .vetor_menu {
+    position: relative;
+    top: 1.1rem;
+    position: absolute;
+    right: 3rem;
+    z-index: -1;
+  }
+
+  .vetor_fechar_menu {
+    position: relative;
+    top: 1.1rem;
+    position: absolute;
+    right: 3rem;
+    z-index: -1;
+    display: none;
+  }
+  
+  .menu_navegacao_lista {
+    display: none;
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: .5rem;
+  }
+
+  .menu_toggle input:checked ~ ul
+  {
+    display: block;
+    background-color: #2D415B;
+    transform: translate(0, 60px);
+    width: 254px;
+  }
+
+  .menu_toggle input:checked ~ .vetor_menu
+  {
+    display: none;
+  }
+
+  .menu_toggle input:checked ~ .vetor_fechar_menu
+  {
+    display: initial;
+  }
+
+  .menu_navegacao_lista_itens {
+    height: 48px;
+    padding-bottom: 1rem;
+  }
+
+  .menu_navegacao_lista li:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .header_usuario_toggle {
     display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
   }
 
   .codigo {
@@ -488,4 +571,16 @@ body {
     width: 97%;
   }
   
+
+  .codigo_comunidade {
+    width: 100%;
+  }
+
+  .codigo_comunidade_projeto {
+    width: 100%;
+  }
+
+  .interacoes_comunidade {
+    display: flex;
+  }
 }
