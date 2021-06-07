@@ -44,6 +44,7 @@ body {
   display: flex;
   margin: 2rem;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header_input {
@@ -57,6 +58,10 @@ body {
 
 .header_input:hover {
   background-color: var(--input-h);
+}
+
+.botao_procurar {
+  display: none;
 }
 
 .header_usuario {
@@ -388,6 +393,7 @@ body {
   margin: 11.25px 10px;
   width: 20px;
   height: 17.5px;
+  fill: red;
 }
 
 .numero_comentarios {
@@ -582,5 +588,34 @@ body {
 
   .interacoes_comunidade {
     display: flex;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    
+    .header_input {
+      display: none;
+    }
+
+    .botao_procurar {
+      position: inherit;
+      display: initial;
+      position: absolute;
+      right: 5rem;
+    }
+
+    .menu_toggle {
+      top: calc(2rem - 10px);
+      right: -1rem;
+    }
+
+    .corpo {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    
   }
 }
