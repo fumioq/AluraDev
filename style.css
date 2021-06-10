@@ -23,6 +23,8 @@
   --icon-h: rgba(80, 129, 251, 0.08);
   --icon-a: rgba(80, 129, 251, 0.16);
   --comunidade-projeto-bg: rgba(0, 0, 0, 0.16);
+  --icon-like-h: rgba(255, 255, 255, 0.08);
+  --icon-like-a: rgba(255, 255, 255, 0.16);
 }
 
 body {
@@ -47,6 +49,10 @@ body {
   align-items: center;
 }
 
+.header_img {
+  cursor: pointer;
+}
+
 .header_input {
   padding: 1em;
   color: var(--branco);
@@ -54,6 +60,8 @@ body {
   background-color: var(--input-n);
   border: none;
   border-radius: 10px;
+  box-sizing: border-box;
+  left: 25%;
 }
 
 .header_input:hover {
@@ -67,8 +75,16 @@ body {
 .header_usuario {
   display: flex;
   align-items: center;
-  width: 145px;
   justify-content: flex-end;
+  width: 106px;
+  height: 56px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: .5rem;
+}
+
+.header_usuario:hover {
+  background: var(--icon-like-h);
 }
 
 .header_usuario_nome {
@@ -152,7 +168,7 @@ body {
 }
 
 .codigo_caixa { 
-  background-color:#9AFF6B;
+  background:#9AFF6B;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
@@ -177,15 +193,26 @@ body {
   width: 9px;
 }
 
-.codigo_caixa_input {
+.areaCodigo {
+  /* padding: 1rem 0.5rem; */
   margin: 0 1.5rem 1.5rem 1.5rem;
-  color: var(--branco);
   background-color: #000;
-  border: none;
-  height: 180px;
-  resize: none;
+  min-height: 180px;
+  width: 90%;
+  box-sizing: border-box  ;
+}
+
+
+.codigo_caixa_input {
   font-family: var(--roboto);
   font-weight: 400;
+  color: var(--branco);
+  min-height: 100px;  
+}
+
+#codigo_input {
+  background-color: transparent;
+  white-space: pre;
 }
 
 .highlight_botao {
@@ -288,14 +315,22 @@ body {
 .opcoes_personalizacao_cor {
   width: 100%;
   padding: .5em;
-  background-color:#9AFF6B;
+  background: #9AFF6B;
   border-radius: .25rem;
 }
 
 .opcoes_personalizacao_cor_cores {
-  background-color: #000;
+  background: transparent;
   padding: .5rem;
   font-size: 1.5rem;
+}
+
+#favcolor {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  border-radius: .5rem;
 }
 
 .botao_salvar_texto {
@@ -337,6 +372,9 @@ body {
   margin: 0 0 1.5rem;
   border-radius: 1rem;
   background-color: var(--comunidade-projeto-bg);
+  transition: all 1s;
+  height:380px;
+  /* height: 430px; */
 }
 
 .codigo_caixa_preta_comunidade {
@@ -365,16 +403,25 @@ body {
 }
 
 .interacoes_comunidade {
-  display: none;
+  opacity: 0;
+  transform: translate(0 , -100%);
+  position: relative;
   margin: 0 1.5rem;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
+.codigo_comunidade_projeto:hover {
+  height:430px;
+}
+
 .codigo_comunidade_projeto:hover .interacoes_comunidade {
-  display: flex;
+  transform: translate(0 , 0);
   opacity: 1;
+  transition: all 1s;
+  z-index: -1;
 }
 
 .comentarios_likes {
@@ -387,6 +434,16 @@ body {
   display: flex;
   width: 58px;
   align-items: center;
+  background: transparent;
+  border-radius: 1rem;
+}
+
+.comentarios:hover , .likes:hover {
+  background: var(--icon-like-h);
+}
+
+.comentarios:active , .likes:active {
+  background: var(--icon-like-a);
 }
 
 .icone_comentarios , .icone_likes {
@@ -444,7 +501,6 @@ body {
     height: 100%;
     right: 0;
     top: calc(2rem - 6px);
-    list-style-type: none;
   }
   
   .menu_toggle nav {
@@ -465,7 +521,7 @@ body {
   
     cursor: pointer;
   
-    z-index: 1;
+    z-index: 3;
     opacity: 0;
   }
   
@@ -474,7 +530,7 @@ body {
     top: 1.1rem;
     position: absolute;
     right: 3rem;
-    z-index: -1;
+    z-index: 2;
   }
 
   .vetor_fechar_menu {
@@ -482,7 +538,7 @@ body {
     top: 1.1rem;
     position: absolute;
     right: 3rem;
-    z-index: -1;
+    z-index: 2;
     display: none;
   }
   
@@ -492,14 +548,32 @@ body {
     padding: 2rem;
     box-sizing: border-box;
     border-radius: .5rem;
+    z-index: 2;
   }
 
   .menu_toggle input:checked ~ ul
   {
     display: block;
-    background-color: #2D415B;
+    background: #2D415B;
     transform: translate(0, 60px);
     width: 254px;
+  }
+
+  .menu_overlay {
+    display: none;
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.4);
+  }  
+
+  .menu_toggle input:checked ~ .menu_overlay
+  {
+    display: initial;
   }
 
   .menu_toggle input:checked ~ .vetor_menu
@@ -588,6 +662,7 @@ body {
 
   .interacoes_comunidade {
     display: flex;
+
   }
 
   @media screen and (max-width: 768px) {

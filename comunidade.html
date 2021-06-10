@@ -26,12 +26,13 @@
       <div class="menu_toggle">
         <nav>
           <input type="checkbox"/>
+          <div class="menu_overlay"></div>
           <img src="img/vetor_menu.svg" alt="Botão para acessar ao Menu" class="vetor_menu">
           <img src="img/vetor_fechar_menu.svg" alt="Botão para fechar o Menu" class="vetor_fechar_menu">
           <ul class="menu_navegacao_lista">
             <li class="menu_navegacao_lista_itens">
               <a href="editor.html" class="menu_navegacao_lista_link texto_geral">
-                <div class="menu_navegacao_lista_bg_ativo">
+                <div class="menu_navegacao_lista_bg">
                   <img src="img/Icon_editor.svg"  alt="icone do editor de texto">
                 </div>
                 <p>Editor de Código</p>
@@ -39,7 +40,7 @@
             </li>
             <li class="menu_navegacao_lista_itens">
               <a href="comunidade.html" class="menu_navegacao_lista_link texto_geral">
-                <div class="menu_navegacao_lista_bg">
+                <div class="menu_navegacao_lista_bg_ativo">
                   <img src="img/Vector_comunidade.svg" alt="icone para acesso à comunidade">
                 </div>
                 <p>Comunidade</p>
@@ -88,7 +89,9 @@
                     <img src="img/Bola_amarela.svg" alt="Bola Amarela" class="codigo_caixa_pontos_ponto">
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
-                  <textarea id="codigo_texto_input" class="codigo_caixa_input" cols="30"></textarea>
+                  <div class="areaCodigo">
+                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                  </div>
                 </div>
               </div>
               <div class="informacoes_projeto">
@@ -120,7 +123,9 @@
                     <img src="img/Bola_amarela.svg" alt="Bola Amarela" class="codigo_caixa_pontos_ponto">
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
-                  <textarea id="codigo_texto_input" class="codigo_caixa_input" cols="30"></textarea>
+                  <div class="areaCodigo">
+                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                  </div>
                 </div>
               </div>
               <div class="informacoes_projeto">
@@ -152,7 +157,9 @@
                     <img src="img/Bola_amarela.svg" alt="Bola Amarela" class="codigo_caixa_pontos_ponto">
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
-                  <textarea id="codigo_texto_input" class="codigo_caixa_input" cols="30"></textarea>
+                  <div class="areaCodigo">
+                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                  </div>
                 </div>
               </div>
               <div class="informacoes_projeto">
@@ -184,7 +191,9 @@
                     <img src="img/Bola_amarela.svg" alt="Bola Amarela" class="codigo_caixa_pontos_ponto">
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
-                  <textarea id="codigo_texto_input" class="codigo_caixa_input" cols="30"></textarea>
+                  <div class="areaCodigo">
+                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                  </div>
                 </div>
               </div>
               <div class="informacoes_projeto">

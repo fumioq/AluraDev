@@ -6,6 +6,7 @@
     <meta name="viewport" content="width = device.width, initial-scale=1">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dracula.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   </head>
@@ -26,6 +27,7 @@
       <div class="menu_toggle">
         <nav>
           <input type="checkbox"/>
+          <div class="menu_overlay"></div>
           <img src="img/vetor_menu.svg" alt="Botão para acessar ao Menu" class="vetor_menu">
           <img src="img/vetor_fechar_menu.svg" alt="Botão para fechar o Menu" class="vetor_fechar_menu">
           <ul class="menu_navegacao_lista">
@@ -87,9 +89,10 @@
                 <img src="img/Bola_amarela.svg" alt="Bola Amarela" class="codigo_caixa_pontos_ponto">
                 <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
               </div>
-              <textarea id="codigo_texto_input" class="codigo_caixa_input" cols="30"></textarea>
+              <div class="areaCodigo">
+                <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" contenteditable="true">const idade</code></pre>
+              </div>
             </div>
-
           </div>
           <a href="#" class="codigo_botao_link texto_geral"><div class="highlight_botao">Visualizar o highlight</div></a>
         </div>
@@ -104,14 +107,12 @@
           <div class="opcoes_personalizacao">
             <h2 class="opcoes_personalizacao_titulo texto_geral">Personalização</h2>
             <div class="opcoes_listas_cor_codigo">
-              <select name="" id="" class="opcoes_personalizacao_tipo_codigo">
-                <option value="" class="opcoes_personalizacao_opcoes texto_geral">JavaScript</option>
-                <option value="" class="opcoes_personalizacao_opcoes texto_geral">Python</option>
+              <select name="" id="linguagem" class="opcoes_personalizacao_tipo_codigo">
+                <option value="javascript" class="opcoes_personalizacao_opcoes texto_geral">JavaScript</option>
+                <option value="python" class="opcoes_personalizacao_opcoes texto_geral">Python</option>
               </select>
               <div class="opcoes_borda_seletor_cor">
-                <select name="" id="" class="opcoes_personalizacao_cor">
-                  <option value="" class="opcoes_personalizacao_cor_cores"><img src="" alt="Cor Azul Claro"></option>
-                  <option value="" class="opcoes_personalizacao_cor_cores"><img src="" alt="Cor Vermelho"></option>
+                <input type="color" id="favcolor" name="favcolor" value="#9AFF6B">
                 </select>
               </div>
             </div>
@@ -126,6 +127,11 @@
         </div>
 
       </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+      <script src="highlight.js"></script>
+      <script src="bgcolor.js"></script>
+
 
     </main>
 
