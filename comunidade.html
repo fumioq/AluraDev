@@ -6,6 +6,7 @@
     <meta name="viewport" content="width = device.width, initial-scale=1">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dracula.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   </head>
@@ -25,7 +26,7 @@
 
       <div class="menu_toggle">
         <nav>
-          <input type="checkbox"/>
+          <input id="abreFecha_menu_botao" type="checkbox"/>
           <div class="menu_overlay"></div>
           <img src="img/vetor_menu.svg" alt="Botão para acessar ao Menu" class="vetor_menu">
           <img src="img/vetor_fechar_menu.svg" alt="Botão para fechar o Menu" class="vetor_fechar_menu">
@@ -82,7 +83,7 @@
         <div class="codigo_comunidade">
           <div class="grid_projetos">
             <div class="codigo_comunidade_projeto">
-              <div class="codigo_caixa">
+              <div class="codigo_caixa_comunidade">
                 <div class="codigo_caixa_preta">
                   <div class="codigo_caixa_pontos">
                     <img src="img/Bola_Vermelha.svg" alt="Bola Vermelha" class="codigo_caixa_pontos_ponto">
@@ -90,7 +91,9 @@
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
                   <div class="areaCodigo">
-                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+<pre><code id = "codigo_input" class="codigo_caixa_input preview hljs" >const idade = 26
+<br>console.log(idade)
+</code></pre>
                   </div>
                 </div>
               </div>
@@ -116,7 +119,7 @@
               </div>
             </div>
             <div class="codigo_comunidade_projeto">
-              <div class="codigo_caixa">
+              <div class="codigo_caixa_comunidade">
                 <div class="codigo_caixa_preta">
                   <div class="codigo_caixa_pontos">
                     <img src="img/Bola_Vermelha.svg" alt="Bola Vermelha" class="codigo_caixa_pontos_ponto">
@@ -124,7 +127,9 @@
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
                   <div class="areaCodigo">
-                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+<pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >for i in range(2): 
+<br>  print(i)</code></pre>
+
                   </div>
                 </div>
               </div>
@@ -150,7 +155,7 @@
               </div>
             </div>
             <div class="codigo_comunidade_projeto">
-              <div class="codigo_caixa">
+              <div class="codigo_caixa_comunidade">
                 <div class="codigo_caixa_preta">
                   <div class="codigo_caixa_pontos">
                     <img src="img/Bola_Vermelha.svg" alt="Bola Vermelha" class="codigo_caixa_pontos_ponto">
@@ -158,7 +163,7 @@
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
                   <div class="areaCodigo">
-                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                    <pre><code id="codigo_input" class="codigo_caixa_input preview hljs" >const idade</code></pre>
                   </div>
                 </div>
               </div>
@@ -184,7 +189,7 @@
               </div>
             </div>
             <div class="codigo_comunidade_projeto">
-              <div class="codigo_caixa">
+              <div class="codigo_caixa_comunidade">
                 <div class="codigo_caixa_preta">
                   <div class="codigo_caixa_pontos">
                     <img src="img/Bola_Vermelha.svg" alt="Bola Vermelha" class="codigo_caixa_pontos_ponto">
@@ -192,7 +197,7 @@
                     <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
                   </div>
                   <div class="areaCodigo">
-                    <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" >const idade</code></pre>
+                    <pre><code id = "codigo_input" class="codigo_caixa_input preview hljs" >const idade</code></pre>
                   </div>
                 </div>
               </div>
@@ -223,7 +228,11 @@
 
       </div>
       
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+      <script src="highlight.js"></script>
+      <script src="inert.js"></script>
+      <script src="closeMenu.js"></script>
+      <script>hljs.highlightAll();</script>
 
 
 

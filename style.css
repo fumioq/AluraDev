@@ -4,14 +4,16 @@
   --cinza_menu: #666666;
   --inter: 'Inter', sans-serif;
   --roboto: 'Roboto Mono', monospace;
-  --botao2-n: rgba(80, 129, 251, 0.08);
-  --botao2-h: rgba(80, 129, 251, 0.16);
-  --botao2-a: rgba(80, 129, 251, 0.24);
   --botao1-n:#5081FB;
   --botao1-h: #7BA4FC;
   --botao1-a: #7BA4FC;
   --botao1-a-border: rgba(80, 129, 251, 0.72);
   --botao1-f: #96B9FD;
+  --botao2-n: rgba(80, 129, 251, 0.08);
+  --botao2-h: rgba(80, 129, 251, 0.16);
+  --botao2-a: rgba(80, 129, 251, 0.24);
+  --botao2-a-border: rgba(80, 129, 251, 0.24);
+  --botao2-f: rgba(80, 129, 251, 0.24);
   --menu-n: rgb(80, 129, 251);
   --menu-n-opa: 0.16;
   --menu-h: rgb(80, 129, 251);
@@ -167,7 +169,7 @@ body {
   flex-direction: column;
 }
 
-.codigo_caixa { 
+.codigo_caixa , .codigo_caixa_comunidade { 
   background:#9AFF6B;
   align-items: center;
   justify-content: center;
@@ -194,11 +196,9 @@ body {
 }
 
 .areaCodigo {
-  /* padding: 1rem 0.5rem; */
   margin: 0 1.5rem 1.5rem 1.5rem;
   background-color: #000;
   min-height: 180px;
-  width: 90%;
   box-sizing: border-box  ;
 }
 
@@ -207,12 +207,15 @@ body {
   font-family: var(--roboto);
   font-weight: 400;
   color: var(--branco);
-  min-height: 100px;  
+  min-height: 150px;  
+  display: block;
+  padding: 1em;
 }
 
 #codigo_input {
   background-color: transparent;
   white-space: pre;
+  line-height: 1.5rem;
 }
 
 .highlight_botao {
@@ -231,6 +234,12 @@ body {
 
 .highlight_botao:active {
   background-color: var(--botao2-a);
+  border: 4px solid var(--botao2-a-border);
+  transform:translateY(-4px);
+}
+
+.highlight_botao:focus {
+  background-color: var(--botao2-f);
 }
 
 
@@ -312,6 +321,10 @@ body {
   justify-content: center;
 }
 
+#favcolor {
+  background: transparent;
+}
+
 .opcoes_personalizacao_cor {
   width: 100%;
   padding: .5em;
@@ -352,6 +365,11 @@ body {
 .botao_salvar:active {
   background-color: var(--botao1-a);
   border: 4px solid var(--botao1-a-border);
+  transform:translateY(-4px);
+}
+
+.botao_salvar:focus {
+  background-color: var(--botao1-f);
 }
 
 /* Comunidade */
@@ -372,7 +390,7 @@ body {
   margin: 0 0 1.5rem;
   border-radius: 1rem;
   background-color: var(--comunidade-projeto-bg);
-  transition: all 1s;
+  transition: all .5s;
   height:380px;
   /* height: 430px; */
 }
@@ -420,8 +438,12 @@ body {
 .codigo_comunidade_projeto:hover .interacoes_comunidade {
   transform: translate(0 , 0);
   opacity: 1;
-  transition: all 1s;
-  z-index: -1;
+  transition: all .5s;
+}
+
+.codigo_caixa_comunidade:hover {
+  box-shadow:  0 0 20px rgba(0, 0, 0, 0.795);
+  transform: scale(1.02);
 }
 
 .comentarios_likes {
@@ -434,12 +456,11 @@ body {
   display: flex;
   width: 58px;
   align-items: center;
-  background: transparent;
   border-radius: 1rem;
 }
 
 .comentarios:hover , .likes:hover {
-  background: var(--icon-like-h);
+  background-color: var(--icon-like-h);
 }
 
 .comentarios:active , .likes:active {
@@ -493,6 +514,7 @@ body {
   
   .header_usuario {
     display: none;
+    cursor: pointer;
   }
 
   .menu_toggle {
@@ -506,57 +528,57 @@ body {
   .menu_toggle nav {
     position: relative;
     top: 0;
-    right: 0;
+    right: 0px;
     height: 100%;
   }
 
 
   .menu_toggle input {
-    position: relative;
-    top: 0px;
     position: absolute;
-    right: 2rem;
     height: 48px;
     width: 48px;
-  
     cursor: pointer;
-  
+    right: 16px;
     z-index: 3;
     opacity: 0;
   }
   
   .vetor_menu {
-    position: relative;
     top: 1.1rem;
     position: absolute;
-    right: 3rem;
+    right: 32px;
     z-index: 2;
   }
 
   .vetor_fechar_menu {
-    position: relative;
     top: 1.1rem;
     position: absolute;
-    right: 3rem;
+    right: 32px;
     z-index: 2;
     display: none;
   }
   
   .menu_navegacao_lista {
-    display: none;
     height: 100%;
-    padding: 2rem;
+    width: 1px;
     box-sizing: border-box;
     border-radius: .5rem;
     z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    transition: .5s;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    right: 0;
+    top: 60px;
+    background: #2D415B;
   }
 
   .menu_toggle input:checked ~ ul
   {
-    display: block;
-    background: #2D415B;
-    transform: translate(0, 60px);
     width: 254px;
+    padding: 2rem;
+
   }
 
   .menu_overlay {
@@ -684,13 +706,23 @@ body {
 
     .menu_toggle {
       top: calc(2rem - 10px);
-      right: -1rem;
     }
 
     .corpo {
       margin-left: 1rem;
       margin-right: 1rem;
     }
-    
+
+    .menu_toggle input {
+      right: 8px;
+    }
+
+    .vetor_menu {
+      right: 24px;
+    }
+
+    .vetor_fechar_menu {
+      right: 24px;
+    }
   }
 }

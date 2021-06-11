@@ -26,7 +26,7 @@
 
       <div class="menu_toggle">
         <nav>
-          <input type="checkbox"/>
+          <input id="abreFecha_menu_botao" type="checkbox"/>
           <div class="menu_overlay"></div>
           <img src="img/vetor_menu.svg" alt="Botão para acessar ao Menu" class="vetor_menu">
           <img src="img/vetor_fechar_menu.svg" alt="Botão para fechar o Menu" class="vetor_fechar_menu">
@@ -90,7 +90,7 @@
                 <img src="img/Bola_verde.svg" alt="Bola Verde" class="codigo_caixa_pontos_ponto">
               </div>
               <div class="areaCodigo">
-                <pre><code id = "codigo_input" class="codigo_caixa_input preview_hljs" contenteditable="true">const idade</code></pre>
+                <pre><code id="codigo_input" class="codigo_caixa_input" contenteditable="true"></code></pre>
               </div>
             </div>
           </div>
@@ -128,9 +128,11 @@
 
       </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-      <script src="highlight.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+      <script src="highlight_i.js"></script>
       <script src="bgcolor.js"></script>
+      <script src="inert.js"></script>
+      <script src="closeMenu.js"></script>
 
 
     </main>
