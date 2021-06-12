@@ -64,6 +64,7 @@ body {
   border-radius: 10px;
   box-sizing: border-box;
   left: 25%;
+  position: absolute;
 }
 
 .header_input:hover {
@@ -506,10 +507,7 @@ body {
   }
 
   .header_input {
-    align-items: center;
-    margin-left: 10%;
-    margin-right: calc(10% + 50px);
-    width: 80%;
+    width: 65%;
   }
   
   .header_usuario {

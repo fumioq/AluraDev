@@ -9,9 +9,98 @@
     <link rel="stylesheet" href="dracula.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="js/app/polyfill/es6.js"></script>
   </head>
 
   <body>
+    <script src="Post.js"></script>
+    <script>
+
+      var openRequest = window.indexedDB.open('AluraDev', 1);
+
+      var connection;
+
+      openRequest.onupgradeneeded = function(e) {
+        console.log("Cria ou altera um bando já existente");
+
+        let minhaConnection2 = e.target.result;
+
+        if(minhaConnection2.objectStoreNames.contains('posts')) {
+          minhaConnection2.deleteObjectStore('posts');
+        };
+
+        minhaConnection2.createObjectStore('posts' , {autoIncrement:true});
+      };
+
+      openRequest.onsuccess = function(e) {
+        console.log("Conexão obetida com sucesso");
+        connection = e.target.result;
+      };
+
+      openRequest.onerror = e => {
+        console.log(e.target.error);
+      };
+
+      function adiciona() {
+        let transaction = connection.transaction(['posts'], 'readwrite');
+
+        let store = transaction.objectStore('posts');
+
+        let post = new Post(new Date() , "Meu primeiro Projeto!" , "Definindo uma variável Const", "const idade = 26" , "javascript" , "#FFF" , "Jow");
+
+        let request = store.add(post);
+
+        request.onsuccess = e => {
+          console.log("Post incuído com sucesso");
+
+        };
+
+        request.onerror = e => {
+          console.log("Não foi possível incluir o post");
+
+        };
+
+      }
+
+      function listaTodos() {
+
+        let transaction = connection.transaction(['posts'], 'readwrite');
+
+        let store = transaction.objectStore('posts');
+
+        let cursor = store.openCursor();
+
+        let posts = [];
+
+        cursor.onsuccess = e => {
+
+          let atual = e.target.result;
+
+          if(atual) {
+
+            let dado = atual.value;
+
+            posts.push(new Posts(dado._data, dado._titulo, dado._descricao, dado._codigo, dado._linguagem, dado._cor, dado._usuario))
+
+            atual.continue();
+
+          } else {
+
+            console.log(posts);
+
+          }
+        };
+
+        cursor.onerror = e => {
+
+          console.log(e.target.error.name);
+
+        };
+
+      }
+
+    </script>
+
     <header class="header">
       <img src="img/Logo.svg" alt="Logo aluraDEV" class="header_img">
       <input type="text" class="header_input" placeholder="Busque por algo">
@@ -135,6 +224,28 @@
       <script src="closeMenu.js"></script>
 
 
+          
+    <div id="postsView"></div>
+    
+    <script src="js/app/models/Post.js"></script>
+    <script src="js/app/controllers/PostController.js"></script>
+    <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/models/ListaPosts.js"></script>
+    <script src="js/app/views/View.js"></script>
+    <script src="js/app/views/PostsView.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
+    <script src="js/app/services/ProxyFactory.js"></script>
+    <script src="js/app/helpers/Bind.js"></script>
+    <script src="js/app/services/PostService.js"></script>
+    <script src="js/app/services/HttpService.js"></script>
+    <script src="js/app/services/ConnectionFactory.js"></script>
+    <script src="js/app/dao/PostDao.js"></script>
+    <script>
+        var postController = new PostController();
+    </script>
+
+    
     </main>
 
   </body>
