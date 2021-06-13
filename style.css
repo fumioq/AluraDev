@@ -352,24 +352,24 @@ body {
   color: black;
 }
 
-.botao_salvar {
+#botao_salvar {
   padding: 1rem;
   background-color: var(--botao1-n);
   text-align: center;
   border-radius: .5rem;
 }
 
-.botao_salvar:hover {
+#botao_salvar:hover {
   background-color: var(--botao1-h);
 }
 
-.botao_salvar:active {
+#botao_salvar:active {
   background-color: var(--botao1-a);
   border: 4px solid var(--botao1-a-border);
   transform:translateY(-4px);
 }
 
-.botao_salvar:focus {
+#botao_salvar:focus {
   background-color: var(--botao1-f);
 }
 
@@ -383,10 +383,14 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 100%;
+}
+
+.projeto{
+  width: 49% ;
 }
 
 .codigo_comunidade_projeto {
-  width: 48%;
   background: #fff;
   margin: 0 0 1.5rem;
   border-radius: 1rem;
